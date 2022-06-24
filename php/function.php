@@ -1,6 +1,12 @@
 <?php
-function select_tarefa($tarefa){
+function select_tarefa(){
+    $send = $_POST['send'];
 
+    if($send == "list_dados"){
+        list_dados();
+    }else{
+        echo $send;
+    }
 }
 
 
@@ -37,7 +43,7 @@ function insert_dados(){
     }
 }
 
-function list_dados(){
+/*function list_dados(){
 
     require "config.php";
 
@@ -100,6 +106,35 @@ function list_dados(){
 
     
 
+    $con->close();
+}*/
+
+function list_dados(){
+
+    require "config.php";
+
+    $sql = 'SELECT * FROM improve_test_1.tarefa_2';
+    
+    if ($con->query($sql) == TRUE) {
+        $result = $con->query($sql);
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()){
+            //echo json_encode(array("module_mame" => $row['module_name'],$row['date'], $row['location'],$row['content'],$row['speaker'],$row['speaker_qual']));
+            //echo json_encode($row);
+            $resturn_arr[] = array(
+                'module_name' =>$row['module_name'],
+                'date' =>$row['date'],
+                'location' =>$row['location'],
+                'content' =>$row['content'],
+                'speaker' =>$row['speaker'],
+                'speaker_qual' =>$row['speaker_qual'],
+            );
+        }
+        echo json_encode($resturn_arr);
+    }
+    } else {
+    echo "Error: " . $sql . "<br>" . $con->error;
+    }
     $con->close();
 }
 
@@ -184,4 +219,5 @@ if(isset($_POST['submit_dados_salario'])){
     valor_hora();
 }
 
-?>
+select_tarefa();
+?>  

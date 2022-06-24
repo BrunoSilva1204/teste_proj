@@ -38,22 +38,104 @@ function case_1(){
             '<option data-countryCode="NZ" value="64">New Zealand (+64)</option> <option data-countryCode="NI" value="505">Nicaragua (+505)</option> <option data-countryCode="NE" value="227">Niger (+227)</option> <option data-countryCode="NG" value="234">Nigeria (+234)</option> <option data-countryCode="NU" value="683">Niue (+683)</option> <option data-countryCode="NF" value="672">Norfolk Islands (+672)</option> <option data-countryCode="NP" value="670">Northern Marianas (+670)</option> <option data-countryCode="NO" value="47">Norway (+47)</option> <option data-countryCode="OM" value="968">Oman (+968)</option> <option data-countryCode="PW" value="680">Palau (+680)</option> <option data-countryCode="PA" value="507">Panama (+507)</option> <option data-countryCode="PG" value="675">Papua New Guinea (+675)</option> <option data-countryCode="PY" value="595">Paraguay (+595)</option> <option data-countryCode="PE" value="51">Peru (+51)</option> <option data-countryCode="PH" value="63">Philippines (+63)</option> <option data-countryCode="PL" value="48">Poland (+48)</option> <option data-countryCode="PT" value="351">Portugal (+351)</option> <option data-countryCode="PR" value="1787">Puerto Rico (+1787)</option> <option data-countryCode="QA" value="974">Qatar (+974)</option> <option data-countryCode="RE" value="262">Reunion (+262)</option> <option data-countryCode="RO" value="40">Romania (+40)</option> <option data-countryCode="RU" value="7">Russia (+7)</option> <option data-countryCode="RW" value="250">Rwanda (+250)</option> <option data-countryCode="SM" value="378">San Marino (+378)</option> <option data-countryCode="ST" value="239">Sao Tome &amp; Principe (+239)</option> <option data-countryCode="SA" value="966">Saudi Arabia (+966)</option> <option data-countryCode="SN" value="221">Senegal (+221)</option> <option data-countryCode="CS" value="381">Serbia (+381)</option> <option data-countryCode="SC" value="248">Seychelles (+248)</option> <option data-countryCode="SL" value="232">Sierra Leone (+232)</option> <option data-countryCode="SG" value="65">Singapore (+65)</option> <option data-countryCode="SK" value="421">Slovak Republic (+421)</option> <option data-countryCode="SI" value="386">Slovenia (+386)</option> <option data-countryCode="SB" value="677">Solomon Islands (+677)</option> <option data-countryCode="SO" value="252">Somalia (+252)</option> <option data-countryCode="ZA" value="27">South Africa (+27)</option> <option data-countryCode="ES" value="34">Spain (+34)</option> <option data-countryCode="LK" value="94">Sri Lanka (+94)</option> <option data-countryCode="SH" value="290">St. Helena (+290)</option> <option data-countryCode="KN" value="1869">St. Kitts (+1869)</option> <option data-countryCode="SC" value="1758">St. Lucia (+1758)</option> <option data-countryCode="SD" value="249">Sudan (+249)</option> <option data-countryCode="SR" value="597">Suriname (+597)</option> <option data-countryCode="SZ" value="268">Swaziland (+268)</option> <option data-countryCode="SE" value="46">Sweden (+46)</option> <option data-countryCode="CH" value="41">Switzerland (+41)</option> <option data-countryCode="SI" value="963">Syria (+963)</option> <option data-countryCode="TW" value="886">Taiwan (+886)</option> <option data-countryCode="TJ" value="7">Tajikstan (+7)</option> <option data-countryCode="TH" value="66">Thailand (+66)</option> <option data-countryCode="TG" value="228">Togo (+228)</option> <option data-countryCode="TO" value="676">Tonga (+676)</option> <option data-countryCode="TT" value="1868">Trinidad &amp; Tobago (+1868)</option> <option data-countryCode="TN" value="216">Tunisia (+216)</option> <option data-countryCode="TR" value="90">Turkey (+90)</option> <option data-countryCode="TM" value="7">Turkmenistan (+7)</option> <option data-countryCode="TM" value="993">Turkmenistan (+993)</option> <option data-countryCode="TC" value="1649">Turks &amp; Caicos Islands (+1649)</option> <option data-countryCode="TV" value="688">Tuvalu (+688)</option> <option data-countryCode="UG" value="256">Uganda (+256)</option> <option data-countryCode="UA" value="380">Ukraine (+380)</option> <option data-countryCode="AE" value="971">United Arab Emirates (+971)</option> <option data-countryCode="UY" value="598">Uruguay (+598)</option> <option data-countryCode="UZ" value="7">Uzbekistan (+7)</option> <option data-countryCode="VU" value="678">Vanuatu (+678)</option> <option data-countryCode="VA" value="379">Vatican City (+379)</option> <option data-countryCode="VE" value="58">Venezuela (+58)</option> <option data-countryCode="VN" value="84">Vietnam (+84)</option> <option data-countryCode="VG" value="84">Virgin Islands - British (+1284)</option> <option data-countryCode="VI" value="84">Virgin Islands - US (+1340)</option> <option data-countryCode="WF" value="681">Wallis &amp; Futuna (+681)</option> <option data-countryCode="YE" value="969">Yemen (North)(+969)</option> <option data-countryCode="YE" value="967">Yemen (South)(+967)</option> <option data-countryCode="ZM" value="260">Zambia (+260)</option> <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option> </select> <input type="text" name="fcontacter_number" id="fcontacter_number" class="form_style_input" required> </div><div class="row_camp_form"> <label for="fnewsletter" class="form_style_label"> Aceita receber newsletter</label> <input type="checkbox" name="fnewsletter" id="fnewsletter" value="1"> </div><div class="row_camp_form"> <input class="form_style_button" type="submit" name="submit" value="Enviar"> </div></form></div>';
 }
 function case_2(){
+    var a = "<?php list_dados();?>;";
     document.getElementById("content").replaceChildren();  
     document.getElementById("content").innerHTML +=
-        '<h1 class="title_tar">Tarefa 2</h1>'+
-        '<?php list_dados();?>';
+        '<h1 class="title_tar">Tarefa 2</h1>';
+        //'<?php list_dados();?>';
+
+
+        $.ajax({
+            url:"./php/function.php",    //the page containing php script
+            type: "post",    //request type,
+            dataType: 'json',
+            data: {send: "list_dados"},
+            success:function(response){
+                var len = response.length;
+                for(var i=0;i<len;i++){
+                    document.getElementById("content").innerHTML +=
+                    '<br>'+
+                    '<div class="containner">'+
+                        '<div class="row_1">'+
+                            '<div class="icon_1">'+
+                                '<img src="./img/icon_1.png" alt="icon_1">'+
+                            '</div>'+
+                            '<div class="title">'+
+                                '<p>'+response[i].module_name+'</p>'+
+                            '</div>'+
+                            '<div class="icon_2"></div>'+
+                                '<img class="icon_2_img" src="./img/icon_2.png" alt="icon_2">'+
+                        '</div>'+
+                        '<div class="row_2">'+
+                            '<div class="date_icon">'+
+                                '<img src="./img/icon_3.png" alt="icon_3">'+
+                            '</div>'+
+                            '<div class="date_text">'+
+                                '<p>'+response[i].date+'</p>'+
+                            '</div>'+
+                            '<div class="line">'+
+                                '<p>|</p>'+
+                            '</div>'+
+                            '<div class="localization_icon">'+
+                                '<img src="./img/icon_4.png" alt="icon_4">'+
+                            '</div>'+
+                            '<div class="localization_text">'+
+                                '<p>'+response[i].location+'</p>'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="row_3">'+
+                          '<div class="content_text">'+
+                              '<p>'+response[i].content+'</p>'+
+                          '</div>'+
+                        '</div>'+
+                        '<hr class="hr_style">'+
+                        '<div class="row_4">'+
+                            '<div class="icon_5">'+
+                                    '<img src="./img/icon_5.png" alt="icon_5">'+
+                            '</div>'+
+                            '<div class="speaker">'+
+                                '<p>Orador: <em class="em_style">'+response[i].speaker+'</em> '+response[i].speaker_qual+'</p>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>';
+                }
+            }
+        });
+   
 }
 
 function case_3(){
     document.getElementById("content").replaceChildren(); 
     document.getElementById("content").innerHTML +=
-        '<p>Tarefa 3</p>';
+        '<h1 class="title_tar">Tarefa 3</h1>'+
+        '<div class="form_tarefa_3">'+
+            '<form method="post" action="./php/function.php" id="form">'+
+                '<label class="label_tarefa_3" for="download_exel">Download excel:</label>'+
+                '<input type="submit" name="download_exel" value="Download Excel" class="form_style_button_v2">'+
+            '</form>'+
+        '</div>';
 }
 
 function case_4(){
     document.getElementById("content").replaceChildren(); 
     document.getElementById("content").innerHTML +=
-    '<p>Tarefa 4</p>';
+    '<h1 class="title_tar">Tarefa 4</h1>'+
+    '<h2>Calcular quanto ganha por hora</h2>'+
+    '<div class="form_tarefa_4">'+
+    '<form method="post" action="./php/function.php">'+
+            '<div class="row_camp_form">'+
+                '<label for="fname" class="form_style_label">Quanto ganha de salario?</label>'+
+                '<input type="text" name="salario" id="salario" class="form_style_input">'+
+            '</div>'+
+            '<div class="row_camp_form">'+
+                '<label for="fname" class="form_style_label">Quantas horas trabalha por mês?</label>'+
+                '<input type="text" name="horas" id="horas" class="form_style_input">'+
+            '</div>'+
+            '<div class="row_camp_form">'+
+                '<input class="form_style_button" type="submit" name="submit_dados_salario" value="Enviar" onclick="submit_tar_4()">'+
+            '</div>'+
+        '</form>'+
+   '</div>';
 }
 
 function case_5(){
