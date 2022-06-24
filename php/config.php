@@ -3,9 +3,9 @@
 //$dbServerName = "cp1.improveinternational.pt";
 $dbServerName = "localhost";
 //$dbUsername = "improve_test_user";
-$dbUsername = "root";
+$dbUsername = "bruno";
 //$dbPassword = "cyXiJ9?pL47&";
-$dbPassword = "";
+$dbPassword = "bruno";
 //$dbName = "improve_test_1";
 $dbName = "improve_test_1";
 

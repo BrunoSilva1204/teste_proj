@@ -10,10 +10,11 @@
 
 <?php require "./php/function.php";
 	  require "./php/menu.php";
-	  require "./tarefa1.php";
 ?>
+
+<div class="content" id="content"></div>
     
 
-
+<script src="./javascript/javascript.js"></script>
 </body>
 </html>

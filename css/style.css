@@ -148,13 +148,14 @@
     display: block;
     width: 100%;
     height:60px;
-    background-color: #00c2dd;
+    /*background-color: #00c2dd;*/
+    background-color: red;
 }
 
-.menu .option_menu{
+.option_menu{
     float: left;
     width: 150px;
-    margin: 15px;
+    margin:0px 15px 15px 15px;
 }
 
 .otion_menu_text{

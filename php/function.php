@@ -1,4 +1,8 @@
 <?php
+function select_tarefa($tarefa){
+
+}
+
 
 function insert_dados(){
 
