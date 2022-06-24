@@ -148,14 +148,19 @@
     display: block;
     width: 100%;
     height:60px;
-    /*background-color: #00c2dd;*/
-    background-color: red;
+    background-color: #00c2dd;
 }
 
 .option_menu{
     float: left;
     width: 150px;
-    margin:0px 15px 15px 15px;
+    margin:4px 15px 4px 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.text_hover{
+    cursor: pointer;
 }
 
 .otion_menu_text{

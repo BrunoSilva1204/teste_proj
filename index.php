@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/styl.css">
 </head>
 <body>
 
@@ -16,5 +16,6 @@
     
 
 <script src="./javascript/javascript.js"></script>
+<script>function_select(1)</script>
 </body>
 </html>
