@@ -141,5 +141,15 @@ function case_4(){
 function case_5(){
     document.getElementById("content").replaceChildren(); 
     document.getElementById("content").innerHTML +=
-    '<p>Tarefa 5</p>';
+    '<h1 class="title_tar">Regra 3 simples</h1>'+
+    '<div class="form_tarefa_3">'+
+        '<form id="form">'+
+            '<label class="label_tarefa_3" >Primeiro valor</label>'+
+            '<input type="numer" name="primeiro_valor" value="1" class="form_style_input">'+
+            '<label class="label_tarefa_3" >Primeiro valor</label>'+
+            '<input type="numer" name="primeiro_valor" value="1" class="form_style_input">'+
+            '<label class="label_tarefa_3" >Primeiro valor</label>'+
+            '<input type="numer" name="primeiro_valor" value="1" class="form_style_input">'+
+        '</form>'+
+    '</div>';
 }
