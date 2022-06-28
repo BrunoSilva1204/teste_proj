@@ -142,14 +142,49 @@ function case_5(){
     document.getElementById("content").replaceChildren(); 
     document.getElementById("content").innerHTML +=
     '<h1 class="title_tar">Regra 3 simples</h1>'+
-    '<div class="form_tarefa_3">'+
+    '<div class="container_5">'+
         '<form id="form">'+
-            '<label class="label_tarefa_3" >Primeiro valor</label>'+
-            '<input type="numer" name="primeiro_valor" value="1" class="form_style_input">'+
-            '<label class="label_tarefa_3" >Primeiro valor</label>'+
-            '<input type="numer" name="primeiro_valor" value="1" class="form_style_input">'+
-            '<label class="label_tarefa_3" >Primeiro valor</label>'+
-            '<input type="numer" name="primeiro_valor" value="1" class="form_style_input">'+
+            '<div class="container_5_left">'+
+                '<div class="row_camp_form">'+
+                    '<input type="number" name="primeiro_valor" value="1" class="form_style_input form_stylr_input_case_5" id="valor_1"></br>'+
+                '</div>'+
+                '<div class="row_camp_form">'+
+                    '<input type="number" name="segundo_valor" value="1" class="form_style_input form_stylr_input_case_5" id="valor_2"></br>'+
+                '</div>'+
+            '</div>'+
+            '<div class="container_5_center"><p class="container_5_center_text">X</p></div>'+
+            '<div class="container_5_right">'+
+                '<div class="row_camp_form">'+
+                    '<input type="number" name="terceiro_valor" value="1" class="form_style_input form_stylr_input_case_5" id="valor_3"></br>'+
+                '</div>'+
+                '<div class="row_camp_form">'+
+                    '<input type="number" name="terceiro_valor" value="" class="form_style_input form_stylr_input_case_5" id="valor_4" disabled></br>'+
+                '</div>'+
+            '</div>'+
         '</form>'+
+    '</div>'+
+    '<div class="button_clacular">'+
+        '<input class="form_style_button" type="submit" name="submit_dados_salario" value="Calcular" onclick="calcular_3_simples()">'+
     '</div>';
+}
+
+function calcular_3_simples(){
+    var valor_1 = document.getElementById('valor_1').value;
+    var valor_2 = document.getElementById('valor_2').value;
+    var valor_3 = document.getElementById('valor_3').value;
+
+    if(valor_1 == null || valor_1 =="" || valor_1 == NaN){
+        valor_1 = 1;
+    }
+    if(valor_2 == null || valor_2 ==""  || valor_1 == NaN){
+        valor_2 = 1;
+    }
+    if(valor_3 == null || valor_3 ==""  || valor_1 == NaN){
+        valor_3 = 1;
+    }
+
+    var resultado = (valor_2*valor_3)/valor_1;
+    resultado.toFixed(3);
+
+    document.getElementById("valor_4").value = resultado;
 }

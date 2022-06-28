@@ -159,15 +159,9 @@
     font-weight: bold;
 }
 
-.text_hover{
-    cursor: pointer;
-}
-
-.otion_menu_text{
-    color: white;
-    font-size: 20px;
-    font-weight: bold;  
-    text-decoration: none;
+.option_menu_text:hover{
+    cursor:pointer;
+    color:white;
 }
 
 .form_style_button_v2{
@@ -186,4 +180,49 @@
 
 .label_tarefa_3{
     font-weight: bold;
+}
+
+.label_tarefa_3_case_5{
+    margin-right: 10px;
+}
+
+.container_5{
+    margin-left: 50px;
+    width: 325px;
+    height: 110px;
+    border: 1px solid black;
+}
+
+.form_stylr_input_case_5{
+    width: 100px;
+    text-align: center;
+}
+
+.container_5_left{
+    width: 155px;
+    height: 110px;
+   float: left;
+}
+
+.container_5_center{
+    width: 15px;
+    height: 110px;
+    float: left;
+}
+
+.container_5_center_text{
+    padding-top: 33px;
+    text-align: center;
+}
+
+.container_5_right{
+    width: 155px;
+    height: 110px;
+    float: left;
+}
+
+.button_clacular{
+    margin-top: 15px;
+    margin-left: 300px;
+    float: left;
 }
