@@ -153,10 +153,11 @@
 
 .option_menu{
     float: left;
-    width: 150px;
+    max-width: 150px;
     margin:4px 15px 4px 15px;
     text-align: center;
     font-weight: bold;
+    border: 1px solid black;
 }
 
 .option_menu_text:hover{
@@ -225,4 +226,12 @@
     margin-top: 15px;
     margin-left: 300px;
     float: left;
+}
+
+.row_camp_form_etiq{
+    width: 150px;
+}
+
+.container_5_etiq{
+    height: 150px;
 }

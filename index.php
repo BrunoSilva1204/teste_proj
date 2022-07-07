@@ -17,6 +17,6 @@
 
 <script src="./javascript/main.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>function_select(5)</script>
+<script>function_select(6)</script>
 </body>
 </html>

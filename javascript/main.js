@@ -15,6 +15,9 @@ function function_select(funcao){
         case 5:
             case_5();
             break;
+        case 6:
+            case_6();
+            break;
         default:
             case_1();
         break;
@@ -187,4 +190,75 @@ function calcular_3_simples(){
     resultado.toFixed(3);
 
     document.getElementById("valor_4").value = resultado;
+}
+
+function case_6(){
+    document.getElementById("content").replaceChildren(); 
+    document.getElementById("content").innerHTML +=
+    '<h1 class="title_tar">Calcular etiquetas</h1>'+
+    '<div class="container_5 container_5_etiq">'+
+        '<form id="form">'+
+            '<div class="container_5_left">'+
+                '<div class="row_camp_form row_camp_form_etiq">'+
+                    '<label>Total etiquetas</label>'+
+                    '<input type="number" name="primeiro_valor" value="1000" class="form_style_input form_stylr_input_case_5" id="valor_1"></br>'+
+                '</div>'+
+                '<div class="row_camp_form row_camp_form_etiq">'+
+                '<label>Quntidade por rolo</label>'+
+                    '<input type="number" name="segundo_valor" value="200" class="form_style_input form_stylr_input_case_5" id="valor_2"></br>'+
+                '</div>'+
+            '</div>'+
+            '<div class="container_5_right">'+
+                '<div class="row_camp_form row_camp_form_etiq">'+
+                    '<label>Numero de vias do cortante</label>'+
+                        '<input type="number" name="segundo_valor" value="6" class="form_style_input form_stylr_input_case_5" id="valor_3"></br>'+
+                '</div>'+
+            '</div>'+
+        '</form>'+
+    '</div>'+
+    '<div class="button_clacular">'+
+        '<input class="form_style_button" type="submit" name="submit_dados_salario" value="Calcular" onclick="calcular_etiquetas()">'+
+    '</div>';
+}
+
+function calcular_etiquetas(){
+    var total_etiquetas = document.getElementById('valor_1').value;
+    var quantidade_por_rolo = document.getElementById('valor_2').value;
+    var vias_cortante = document.getElementById('valor_3').value;
+    
+    var numero_de_rolos_real = total_etiquetas/quantidade_por_rolo;
+    console.log('comparador '+numero_de_rolos_real/vias_cortante);
+
+    if(numero_de_rolos_real/vias_cortante == 1){
+        console.log('Para fazer '+total_etiquetas+' etiquetas com cada rolo '+quantidade_por_rolo+' etiquetas num cortante com '+vias_cortante+' vias:');
+        console.log('Numero de vezes que a máquina trabalha: '+numero_de_rolos_real/vias_cortante);
+        console.log('Numero de rolos: '+numero_de_rolos_real);
+        console.log('Cada rolo vai ter: '+quantidade_por_rolo);
+
+    }else if(numero_de_rolos_real/vias_cortante > 1){
+        console.log('maior que 1');
+
+        var numero_de_rolos_completos = Math.trunc(numero_de_rolos_real);
+        console.log('numero de rolos completos '+numero_de_rolos_completos);
+        var quantidade_de_etiq_de_rolos_completos = numero_de_rolos_completos*quantidade_por_rolo;
+        var etiq_rolos_incompletos = total_etiquetas-quantidade_de_etiq_de_rolos_completos;
+        var quantidade_rolo_incompleto = etiq_rolos_incompletos/vias_cortante;
+
+        console.log('Para fazer '+total_etiquetas+' etiquetas com cada rolo '+quantidade_por_rolo+' etiquetas num cortante com '+vias_cortante+' vias:');
+        var vezes_que_a_maquina_trabalha = (Math.trunc(numero_de_rolos_real/vias_cortante)+1);
+        console.log('Numero de vezes que a máquina trabalha: '+vezes_que_a_maquina_trabalha);
+        console.log('Numero de rolos completos: '+numero_de_rolos_completos+ ' com '+quantidade_por_rolo);
+        console.log('Numero de rolos incompletos: '+vias_cortante+ ' com '+quantidade_rolo_incompleto);
+
+        
+
+    }else{
+        console.log('menor que 1');
+        console.log('Para fazer '+total_etiquetas+' etiquetas com cada rolo '+quantidade_por_rolo+' etiquetas num cortante com '+vias_cortante+' vias:');
+        console.log('Numero de vezes que a máquina trabalha: 1');
+        console.log('Numero de rolos: '+vias_cortante);
+        var quantidade_rolo = parseInt(total_etiquetas/vias_cortante);
+        console.log('Cada rolo vai ter: '+(quantidade_rolo+1));
+    }
+    
 }

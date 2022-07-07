@@ -14,5 +14,8 @@
     <div class="option_menu" >
         <p class="option_menu_text" onclick="function_select(5)">Regra 3 simples</p>
     </div>
+    <div class="option_menu" >
+        <p class="option_menu_text" onclick="function_select(6)">Calcular etiquetas</p>
+    </div>
     
 </div>
